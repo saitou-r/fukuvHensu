@@ -29,31 +29,48 @@ namespace fukuvHensu
         private void button1_Click(object sender, EventArgs e)
         {
             vx = 0;
-            vy = -2;
+            vy = -5;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            vx = -2;
+            vx = -5;
             vy = 0;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            vx = 2;
+            vx = 5;
             vy = 0;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             vx = 0;
-            vy = 2;
+            vy = 5;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Left += vx;
             label1.Top += vy;
+
+            if (label1.Left < 0)
+            {
+                vx = 5;
+            }
+            else if (label1.Top < 0)
+            {
+                vy = 5;
+            }
+            else if (label1.Left > ClientSize.Width)
+            {
+                vx = -5;
+            }
+            else if (label1.Top > ClientSize.Height)
+            {
+                vy = -5;
+            }
         }
     }
 }
